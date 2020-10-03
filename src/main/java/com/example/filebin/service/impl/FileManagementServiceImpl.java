@@ -35,7 +35,7 @@ public class FileManagementServiceImpl implements FileManagementService {
         String fileExtension = fileName.substring(fileName.lastIndexOf("."));
         String uniqueFileName = UUID.randomUUID() + fileExtension;
         boolean response = uploadFileToS3bucket(uniqueFileName, uploadFile, appConfig.getBucketName());
-        StringBuilder url = new StringBuilder("http://filebin-env-3.eba-2fmzkv9m.ap-south-1.elasticbeanstalk.com/download/");
+        StringBuilder url = new StringBuilder("http://localhost:8080/download/");
         url.append(uniqueFileName);
         return response ? url.toString() : "";
     }
