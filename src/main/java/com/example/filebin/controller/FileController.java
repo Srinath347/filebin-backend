@@ -19,8 +19,11 @@ public class FileController {
 
     private Logger logger = LoggerFactory.getLogger(FileController.class);
 
-    @Autowired
     private FileManagementService fileManagementService;
+
+    FileController(FileManagementService fileManagementService) {
+        this.fileManagementService = fileManagementService;
+    }
 
     @CrossOrigin("*")
     @PostMapping(value = "/upload/{fileName}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
