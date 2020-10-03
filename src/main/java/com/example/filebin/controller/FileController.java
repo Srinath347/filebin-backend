@@ -25,6 +25,11 @@ public class FileController {
         this.fileManagementService = fileManagementService;
     }
 
+    @RequestMapping("/")
+    public String healthCheck() {
+        return "OK";
+    }
+
     @CrossOrigin("*")
     @PostMapping(value = "/upload/{fileName}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity uploadFile(@PathVariable("fileName") final String fileName,
